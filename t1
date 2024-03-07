@@ -1,0 +1,27 @@
+censorship_lst = []
+
+word = False
+while word != '':
+    word = input('Введите запрещенное слово: ')
+    print(f'{word} добавлена в список запрещенных слов')
+    censorship_lst.append(word)
+censorship_lst.pop(-1)
+
+
+print('Запрещенные слова:')
+print(censorship_lst)
+
+text = ''
+while len(text) < 10:
+    print('Напишите текст длинее 10 букв')
+    text = input('Напишите текст: ')
+text = text.split()  
+
+new_text = ''
+
+for i in text:
+    if i in censorship_lst:
+        i = '"цензура"'
+    new_text += i + ' '
+
+print(new_text)
