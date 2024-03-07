@@ -1,0 +1,30 @@
+def summ(num1,num2,oper):
+    if oper == '+':
+        print(num1 + num2)
+    elif oper == '-':
+        print(num1 - num2)
+    elif oper == '*':
+        print(num1 * num2)
+    elif oper == '/':
+        print(num1 / num2)
+    elif oper == '//':
+        print(num1 // num2)
+
+
+operators = ['+','-','*','/','//']
+
+text = False
+while text != '':
+    text = input('Введите выражение: ')
+    for i in text:
+        if i in operators:
+            left_number = text[:text.index(i)].strip()
+            right_number = text[text.index(i) + 1:].strip()
+            operator = i
+            try:
+                left_number = float(left_number)
+                right_number = float(right_number)
+                summ(left_number,right_number,operator)
+            except:
+                print('Выражение содержит ненужные символы или операторов слишком много')
+                break
