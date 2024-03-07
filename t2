@@ -1,0 +1,17 @@
+import collections
+symbols = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т',\
+            'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+
+
+text = input('Введите тект: ')
+print(f'В предожении "{text}":')
+text = text.lower()
+
+text = list(text)
+text = collections.Counter(text)
+
+for i,k in text.items():
+    if k > 1 and i in symbols:
+        print(f'Буква {i} встречается {k} раз')
+        print(f'Буква {i} в алфавите стоит {symbols.index(i) + 1} по списку')
+        print()
